@@ -8,27 +8,27 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.storyviewer.R
-import com.example.storyviewer.model.Story
+import com.example.storyviewer.model.Post
 
-class StoryAdapter(private val storyList: List<Story>): RecyclerView.Adapter<StoryAdapter.ViewHolder>(){
+class PostAdapter(private val postList: List<Post>): RecyclerView.Adapter<PostAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_story,parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post,parent, false)
         return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-       return storyList.size
+       return postList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       val story = storyList[position]
+       val post = postList[position]
 
-        holder.title.text = story.title
-        holder.description.text = story.description
+        holder.title.text = post.title
+        holder.description.text = post.description
 
         Glide.with(holder.imageProfile.context)
-            .load(story.thumb)
+            .load(post.thumb)
             .into(holder.imageProfile)
     }
 

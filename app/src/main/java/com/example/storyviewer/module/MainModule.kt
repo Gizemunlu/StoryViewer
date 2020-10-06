@@ -1,9 +1,9 @@
 package com.example.storyviewer.module
 
 import com.example.storyviewer.Constants.Companion.BASE_URL
-import com.example.storyviewer.network.StoryApi
-import com.example.storyviewer.repository.StoryRepository
-import com.example.storyviewer.viewmodel.StoryViewModel
+import com.example.storyviewer.network.PostApi
+import com.example.storyviewer.repository.PostRepository
+import com.example.storyviewer.viewmodel.PostViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module.module
@@ -14,11 +14,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val mainModule = module{
     single      {   createWebService()          }
-    single      {   StoryRepository(get())      }
-    viewModel   {   StoryViewModel(get())       }
+    single      {   PostRepository(get())      }
+    viewModel   {   PostViewModel(get())       }
 }
 
-fun createWebService(): StoryApi {
+fun createWebService(): PostApi {
 
     val interceptor = HttpLoggingInterceptor()
     interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -31,5 +31,5 @@ fun createWebService(): StoryApi {
         .client(client)
         .build()
 
-    return retrofit.create(StoryApi::class.java)
+    return retrofit.create(PostApi::class.java)
 }

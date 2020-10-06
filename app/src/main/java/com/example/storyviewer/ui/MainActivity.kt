@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.storyviewer.adapter.StoryAdapter
-import com.example.storyviewer.model.Story
+import com.example.storyviewer.adapter.PostAdapter
+import com.example.storyviewer.model.Post
 import androidx.lifecycle.Observer
 import com.example.storyviewer.R
-import com.example.storyviewer.viewmodel.StoryViewModel
+import com.example.storyviewer.viewmodel.PostViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val storyListModel: StoryViewModel by viewModel()
+    private val postListModel: PostViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,17 +24,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun getRecycle(){
         recycler.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        storyListModel.getStories()
-        storyListModel.listofStories.observe(
+        postListModel.getPost()
+        postListModel.listofPost.observe(
             this,
             Observer(
-                function = fun(storyList: List<Story>?) {
-                    storyList?.let {
-                        if (storyList.isNotEmpty()) {
-                            val storyListAdapter = StoryAdapter(storyList)
-                            recycler.adapter = storyListAdapter
+                function = fun(postList: List<Post>?) {
+                    postList?.let {
+                        if (postList.isNotEmpty()) {
+                            val postListAdapter = PostAdapter(postList)
+                            recycler.adapter = postListAdapter
                         } else {
-                            print("Story list is empty!!!")
+                            print("Post list is empty!!!")
                         }
                     }
                 })

@@ -1,10 +1,10 @@
 package com.example.storyviewer.network
 
-import com.example.storyviewer.model.StoryList
+import com.example.storyviewer.model.PostList
 import retrofit2.Call
 import retrofit2.http.GET
 
-interface StoryApi {
+interface PostApi {
     @GET("7f0dedbd/")
-    fun getStories(): Call<StoryList>
+    fun getPost(): Call<PostList>
 }
