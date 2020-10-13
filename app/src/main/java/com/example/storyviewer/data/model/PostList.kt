@@ -1,4 +1,4 @@
-package com.example.storyviewer.model
+package com.example.storyviewer.data.model
 
 import java.io.Serializable
 

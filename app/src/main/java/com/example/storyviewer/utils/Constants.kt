@@ -1,4 +1,4 @@
-package com.example.storyviewer
+package com.example.storyviewer.utils
 
 class Constants {
     companion object{
