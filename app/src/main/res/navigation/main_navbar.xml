@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/postListFragment"
-        android:name="com.example.storyviewer.ui.fragments.PostListFragment"
+        android:name="com.example.storyviewer.ui.fragments.HomeFragment"
         android:label="PostListFragment"/>
 </navigation>

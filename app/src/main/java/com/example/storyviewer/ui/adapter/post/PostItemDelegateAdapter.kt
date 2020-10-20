@@ -1,4 +1,4 @@
-package com.example.storyviewer.ui.adapter
+package com.example.storyviewer.ui.adapter.post
 
 import com.example.delegateadapter.delegate.KDelegateAdapter
 import com.example.storyviewer.R
@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.item_post.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class PostItemDelegateAdapter :
+open class PostItemDelegateAdapter :
     KDelegateAdapter<PostItemViewModel>(), KoinComponent {
 
     private val picasso by inject<Picasso>()
@@ -19,9 +19,14 @@ class PostItemDelegateAdapter :
 
     override fun onBind(item: PostItemViewModel, viewHolder: KViewHolder) {
         with(viewHolder) {
-            item_post_title.text = item.post.title
-            item_post_description.text = item.post.description
-            picasso.load(item.post.thumb).into(item_post_image)
+            item.post.videos?.run {
+                getOrNull(0)?.let { postItem ->
+                    item_post_title.text = postItem.title
+                    item_post_description.text = postItem.description
+                    picasso.load(postItem.thumb).into(image_profile)
+                }
+            }
+
         }
     }
 }

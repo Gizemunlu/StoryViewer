@@ -1,4 +1,4 @@
-package com.example.storyviewer.ui.adapter
+package com.example.storyviewer.ui.adapter.post
 
 import com.example.delegateadapter.delegate.diff.IComparableItem
 import com.example.storyviewer.data.model.Post
