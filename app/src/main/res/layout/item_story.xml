@@ -10,6 +10,6 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_gravity="center"
-        android:padding="9.5dp"
+        android:padding="5dp"
         android:scaleType="centerCrop" />
 </LinearLayout>

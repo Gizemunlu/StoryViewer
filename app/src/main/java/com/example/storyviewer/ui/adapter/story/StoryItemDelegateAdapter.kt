@@ -20,13 +20,8 @@ class StoryItemDelegateAdapter(
         items[position] is StoryItemViewModel
 
     override fun onBind(item: StoryItemViewModel, viewHolder: KViewHolder) {
-       item.story.videos?.run {
-          getOrNull(0)?.let{ storyItem ->
-               picasso.load(storyItem.thumb).into(viewHolder.story_img)
-               viewHolder.story_img.setOnClickListener{
-               onItemClick(storyItem.thumb)
-              }
-           }
-       }
+        picasso.load(item.story.thumb).into(viewHolder.story_img)
+        viewHolder.story_img.setOnClickListener {
+            onItemClick(item.story.thumb) }
     }
 }

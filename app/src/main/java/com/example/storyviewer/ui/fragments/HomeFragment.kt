@@ -12,6 +12,8 @@ import com.example.storyviewer.R
 import com.example.storyviewer.ui.adapter.StoryListDelegateAdapter
 import com.example.storyviewer.ui.adapter.story.StoryItemDelegateAdapter
 import com.example.storyviewer.ui.adapter.post.PostItemDelegateAdapter
+import com.example.storyviewer.utils.ViewEvent
+import com.example.storyviewer.utils.ViewState
 import com.example.storyviewer.viewmodel.HomeViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_posts.*
@@ -48,7 +50,7 @@ class HomeFragment : Fragment(){
 
         viewModel.event.observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let { event ->
-                if (event == HomeViewModel.ViewEvent.ERROR) {
+                if (event == ViewEvent.ERROR) {
                     showText("Sorryy!")
                 }
             }
@@ -58,8 +60,8 @@ class HomeFragment : Fragment(){
     private fun initViews() {
         viewModel.state.observe(viewLifecycleOwner, Observer {
             when (it) {
-                HomeViewModel.ViewState.DEFAULT -> progress_bar.visibility = View.GONE
-                HomeViewModel.ViewState.LOADING -> progress_bar.visibility = View.VISIBLE
+                ViewState.DEFAULT -> progress_bar.visibility = View.GONE
+                ViewState.LOADING -> progress_bar.visibility = View.VISIBLE
                 else -> showText("Try Again!")
             }
         })

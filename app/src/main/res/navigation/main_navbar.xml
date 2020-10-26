@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navbar"
-    app:startDestination="@id/postListFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/postListFragment"
+        android:id="@+id/homeFragment"
         android:name="com.example.storyviewer.ui.fragments.HomeFragment"
-        android:label="PostListFragment"/>
+        android:label="HomeFragment"/>
 </navigation>
